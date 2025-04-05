@@ -9,7 +9,7 @@
 #include "bst.h"
 
 struct KeyError { };
-
+ 
 /**
 * A special kind of node for an AVL tree, which adds the balance as a data member, plus
 * other additional helper functions. You do NOT need to implement any functionality or
