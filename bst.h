@@ -248,9 +248,9 @@ protected:
 
     // Add helper functions here
     static Node<Key, Value>* priorNode(Node<Key, Value>*current);
-    int getHeight(Node<Key,Value>*current);
+    int getHeight(Node<Key,Value>* node) const;
     void clearTree(Node<Key,Value>* currentNode);
-    bool balancedHelper(Node<Key, Value>* node);
+    bool balancedHelper(Node<Key, Value>* node) const;
 
 
 protected:
@@ -720,7 +720,7 @@ Node<Key, Value>* BinarySearchTree<Key, Value>::internalFind(const Key& key) con
 }
 
 
-template<typename Key, typename Value> int getHeight(Node<Key,Value>*node){
+template<typename Key, typename Value> int BinarySearchTree<Key, Value>::getHeight(Node<Key,Value>* node) const{
     if(node == nullptr){
         return -1;
     }
@@ -738,7 +738,7 @@ template<typename Key, typename Value> int getHeight(Node<Key,Value>*node){
 
 
 template<typename Key, typename Value> 
-bool BinarySearchTree<Key, Value>::balancedHelper(Node<Key, Value>* current){
+bool BinarySearchTree<Key, Value>::balancedHelper(Node<Key, Value>* current) const{
     if(current ==nullptr){
         return true;
     }

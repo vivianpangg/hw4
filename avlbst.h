@@ -138,8 +138,8 @@ protected:
 
     // Add helper functions here
     void insertFix(AVLNode<Key,Value>* parentNode,AVLNode<Key,Value>* current);
-    int getBalance(AVLNode<Key,Value>* node);
-    void clearNodes(AVLNode<Key,Value>* node);
+    int getNodeBalance(AVLNode<Key,Value>* node);
+    // void clearNodes(AVLNode<Key,Value>* node);
     void rotateRight(AVLNode<Key,Value>* parentNode);
     void rotateLeft(AVLNode<Key,Value>* parentNode);
     void removeFix(AVLNode<Key, Value>* node , int diff);
@@ -212,7 +212,7 @@ void AVLTree<Key, Value>::insertFix(AVLNode<Key, Value>*parent, AVLNode<Key, Val
                 rotateLeft(grandparent);
 
 
-                if(child->getBalance() ==-1){
+                if(child->getBalance() ==1){
                     parent->setBalance(0);
                     grandparent->setBalance(-1);
                     child->setBalance(0);
@@ -222,7 +222,7 @@ void AVLTree<Key, Value>::insertFix(AVLNode<Key, Value>*parent, AVLNode<Key, Val
                     grandparent->setBalance(0);
                     child->setBalance(0);
 
-                }else if(child->getBalance() ==1){
+                }else if(child->getBalance() ==-1){
                     parent->setBalance(1);
                     grandparent->setBalance(0);
                     child->setBalance(0);
@@ -468,7 +468,7 @@ void AVLTree<Key, Value>::removeFix(AVLNode<Key, Value>* node, int diff){
 }
 
 template<class Key, class Value>
-int AVLTree<Key,Value>::getBalance(AVLNode<Key, Value>* node){
+int AVLTree<Key,Value>::getNodeBalance(AVLNode<Key, Value>* node){
     if(node==nullptr){
         return 0;
 
