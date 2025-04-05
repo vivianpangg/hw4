@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <utility>
 
-/**
+/** 
  * A templated class for a Node in a search tree.
  * The getters for parent/left/right are virtual so
  * that they can be overridden for future kinds of
