@@ -513,8 +513,9 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
             current = current->getRight();
         }
 
+    }
 
-        Node<Key,Value>* newNode = new Node<Key,Value> (key,value, parent);
+    Node<Key,Value>* newNode = new Node<Key,Value> (key,value, parent);
 
         if(key<parent->getKey()){
             parent->setLeft(newNode);
@@ -522,7 +523,6 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
             parent->setRight(newNode);
         }
 
-    }
 
     //empty tree
     //serach for key
